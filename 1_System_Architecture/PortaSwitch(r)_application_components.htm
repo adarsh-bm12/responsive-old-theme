@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "2.4";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>PortaSwitch® application components</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>PortaSwitch® application components</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="PortaSwitch® application components">
+        <span>PortaSwitch® application components</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <div>
+    <h2 class="Heading2"><a id="PortaSwitch_application_components"></a>PortaSwitch® application components</h2>
+    <p><img alt="PortaSwitch architecture" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image12.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image12.png" class="popup-image-thumbnail" width="750"/></p>
+    <p> </p>
+    <p>Every PortaSwitch® application (e.g. OCS server, web interface, etc.) consists of a combination of processes (subcomponents such as the RADIUS or Diameter daemons, the Apache server, statistics collection tools, etc.). All of these processes possess
+      certain functions and interact with a number of other processes. If one process fails, a service that is using it may stop working (even if this service is provided from another server). Hence, it’s important to understand the interconnection among
+      PortaSwitch® applications (and their subcomponents) and learn the procedures that ensure this interconnection.</p>
+    <p>Note that the Configuration server must have a connection with all other PortaSwitch® components via a private network interface. This network interface is also used by the PortaSwitch® servers to interconnect with each other.</p>
+    <p>To learn which ports must be open on PortaSwitch® servers, please refer to the <em>What is the recommended setup for PortaSwitch® behind a firewall?</em> section in the <a class="Hyperlink" href="https://www.portaone.com/documentation" target="_blank">PortaBilling® Installation Guide</a>.</p>
+    <p>For a detailed description of PortaSIP® component and processes, please refer to the <em>PortaSIP® Cluster Components</em> section in the <a class="Hyperlink" href="https://www.portaone.com/documentation" target="_blank">PortaSIP® Administrator Guide</a>.</p>
+    <h4><a id="Protocols_and_ports_used_by_the_OCS_server"></a>Protocols and ports used by the OCS server</h4>
+    <div align="left">
+      <table class="NormalTable">
+        <tbody>
+          <tr>
+            <th>
+              <p class="TableRowTitle">Subcomponent</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Interacts with</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Protocol</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Ports</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Details</p>
+            </th>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"><strong>Billing Engine</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Main DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"><strong>RADIUS</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">PortaSIP® Cluster</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">UDP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">1812/1813</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Incoming RADIUS requests</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"><strong>Alerter</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Main DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description" rowspan="2">
+              <p class="TableParagraph" style="margin:0;"><strong>Disconnector</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Main DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Other nodes (VoIP, WiMAX, WiFi)</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TFTP/HTTP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"><strong>Diameter</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Other nodes (VoIP, WiMAX, WiFi)</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">UDP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Incoming Diameter requests</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h4><a id="Protocols_and_ports_used_by_PortaSIP"></a>Protocols and ports used by PortaSIP®</h4>
+    <p>PortaSIP® components listen on following ports:</p>
+    <div align="left">
+      <table class="NormalTable">
+        <tbody>
+          <tr>
+            <th>
+              <p class="TableRowTitle">Subcomponent</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Protocol</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Ports</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Details</p>
+            </th>
+          </tr>
+          <tr style="text-align: center">
+            <td colspan="4" style="margin: 0; padding: 0;">
+              <p style="font-weight:normal; margin: 0; padding: 0;"><strong><span style="text-align:center;">Dispatching node</span></strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph" style="margin:0px"><strong>EdgeProxy</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">UDP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5062</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">SIP port for control SIP traffic</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>EdgeProxy, SIP cluster protector</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">UDP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5060</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">production SIP traffic</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph" style="margin:0px"><strong>EdgeProxy, SIP cluster protector</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5060</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">production SIP traffic</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>EdgeProxy, SIP cluster protector</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">TLS</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5061</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">encrypted production SIP traffic</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>Mail proxy</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">IMAP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">8081</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">IMAP transport</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>Mail proxy</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">IMAPS</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">8091</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">IMAP over SSL</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>Mail proxy</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">SMTP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">8101</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">SMTP transport</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>Mail proxy</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">UDP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5067</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">Mail Proxy control traffic</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>Processing Node controller</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">UDP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5063</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">Media Unit Controller UDP transport</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px"><strong>Processing Node controller</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">5068</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0px">Telnet interface</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph" style="height: 17px"><strong>Limit controller</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5070</p>
+            </td>
+            <td>
+              <p class="TableParagraph" style="margin-top:0px">port for communication with the ProcessingNode controller</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>SMPP proxy</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">SMPP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">2775</p>
+            </td>
+            <td>
+              <p class="TableParagraph">incoming SMPP connections</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>SMPP proxy</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5064</p>
+            </td>
+            <td>
+              <p class="TableParagraph">port for communication with the ProcessingNode controller</p>
+            </td>
+          </tr>
+          <tr style="text-align: center">
+            <td colspan="4" style="margin: 0; padding: 0;">
+              <p class="TableParagraph" style="margin:0;"><strong>Processing Node</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph "><strong>MWI</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph ">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">5264</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">the network port to bind the MWI daemon to</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph "><strong>IMGate</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph ">SMPP</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">2775</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">incoming SMPP connection</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph "><strong>IMGate</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph ">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">5960</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">port for incoming SIP SIMPLE messages</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph "><strong>IMGate</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph ">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">5960</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">port for incoming SIP SIMPLE messages</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph "><strong>IMGate</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph ">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">5961</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">port for outgoing SIP SIMPLE messages</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph "><strong>IMGate</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph ">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">5961</p>
+            </td>
+            <td>
+              <p class="TableParagraph ">port for outgoing SIP SIMPLE messages</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>IMGate</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">2775</p>
+            </td>
+            <td>
+              <p class="TableParagraph">port where the IMGate server creates a listening socket for SMPP connections</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>RTP proxy</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">35000–65000</p>
+            </td>
+            <td>
+              <p class="TableParagraph">RTP proxy port</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>B2BUA</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5070</p>
+            </td>
+            <td>
+              <p class="TableParagraph">Base SIP port for B2BUA workers</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>B2BUA</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5064</p>
+            </td>
+            <td>
+              <p class="TableParagraph">B2BUA telnet interface</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>B2BUA</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5000</p>
+            </td>
+            <td>
+              <p class="TableParagraph">Call controller API</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>B2BUA</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5059</p>
+            </td>
+            <td>
+              <p class="TableParagraph">B2BUA sibling communication</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>Registrar</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5065</p>
+            </td>
+            <td>
+              <p class="TableParagraph">Registar transport ports</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>Registrar</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5065</p>
+            </td>
+            <td>
+              <p class="TableParagraph">Registar transport ports</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>Subscription manager</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5066</p>
+            </td>
+            <td>
+              <p class="TableParagraph">Subscription manager transport ports</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>Subscription manager</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">UDP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">5066</p>
+            </td>
+            <td>
+              <p class="TableParagraph">Subscription manager transport ports</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>IMAP server</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">IMAP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">143</p>
+            </td>
+            <td>
+              <p class="TableParagraph">IMAP transport</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>IMAP server</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">IMAPS</p>
+            </td>
+            <td>
+              <p class="TableParagraph">993</p>
+            </td>
+            <td>
+              <p class="TableParagraph">IMAP over SSL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="TableParagraph"><strong>Log Master</strong></p>
+            </td>
+            <td>
+              <p class="TableParagraph">TCP</p>
+            </td>
+            <td>
+              <p class="TableParagraph">10000–10800</p>
+            </td>
+            <td>
+              <p class="TableParagraph"> </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h4><a id="Protocols_and_ports_used_by_the_Web_server "></a>Protocols and ports used by the Web server</h4>
+    </div>
+    <div align="left ">
+      <table class="NormalTable">
+        <tbody>
+          <tr>
+            <th>
+              <p class="TableRowTitle">Subcomponent</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Interacts with</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Protocol</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Ports</p>
+            </th>
+            <th>
+              <p class="TableRowTitle">Details</p>
+            </th>
+          </tr>
+          <tr>
+            <td class="description" rowspan="2 ">
+              <p class="TableParagraph" style="margin:0;"><strong>TaskStack</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Main DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Replica DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection (SELECT requests only)</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description" rowspan="3 ">
+              <p class="TableParagraph" style="margin:0;"><strong>Apache/FCGI</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">PortaSIP® Media server / other nodes (VoiP, WiMAX, WiFi)</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TFTP/HTTP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Main DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Replica DB Server</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TCP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">3306/3307</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">MySQL Database server connection (SELECT requests only)</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"><strong>Cassandra</strong></p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">Other nodes (VoiP, WiMAX, WiFi)</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;">TFTP/HTTP</p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+            <td class="description">
+              <p class="TableParagraph" style="margin:0;"> </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body></html>

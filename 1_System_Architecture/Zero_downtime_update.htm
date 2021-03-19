@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "2.6_1";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>Zero-downtime update</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>Zero-downtime update</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+  <style>
+    /*<![CDATA[*/
+    .RH-LAYOUT-thumbnail-image {
+      max-width: 750px !important;
+      max-height: 105vh !important;
+    }
+    /*]]>*/
+  </style>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="Zero-downtime update">
+        <span>Zero-downtime update</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <div>
+    <h2 class="Heading2"><a id="_Zero-downtime_update"></a><a id="_Hlk501633817"></a><a id="_Toc59709050"></a><a id="_Hlk501633811"></a>Zero-downtime update</h2>
+    <p>New maintenance releases are delivered every 2 months, and each new release contains numerous enhancements that enable new or improved services. Naturally, telco operators want to maintain an up-to-date system to uphold their competitive edge – and
+      this must be done without any negative impact on the end user.</p>
+    <p>Zero-downtime update (ZDU) technology allows you to perform software upgrades at any time without any noticeable impact on end users.</p>
+    <p>ZDU utilizes PortaSwitch® site redundancy architecture – for which at least two sites are required. On the main site extend the capacity of your PortaSIP® to include dispatching SBC instances.</p>
+    <p>The upgrade is performed using the following procedure:</p>
+    <ul class="List24" data-start="1" xmlns="">
+      <li>
+        <p class="ListParagraph">First, the usual upgrade preparation is performed (verification of custom modifications, hardware check for compatibility with new OS, etc.).</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Then, secondary site B is switched to stand-alone mode. The dispatching SBC sends new registration and call initiation attempts to site B.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Though PortaSIP® on main site A is switched to “maintenance” mode, active calls remain connected until they are completed.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">After all existing calls are completed on site A and there is no more live traffic there, the upgrade process begins on that site. A new version of code is installed on all servers, database changes are applied and servers are rebooted (excluding
+          the dispatching SBC).</p>
+      </li>
+      <li>
+        <p class="ListParagraph">The dispatching SBC cluster undergoes the update process sequentially: standby mode is enabled on the first dispatching SBC node. The virtual IP address is switched to the second node, which becomes active and handles all call and registration
+          requests. Then the update process starts on the first node. Upon completion, the update process starts on the second node. The second node is put into standby and the virtual IP address switches to the first node, which then becomes active.
+          After the update on the second node completes, its standby mode is disabled.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Throughout this time, customers are able to use services via site B as usual; calls are charged, balances are updated accordingly and xDRs are written. Find the list of limitations in the <a class="Hyperlink" href="Deploying_PortaSwitch(r)_across_multiple_sites.htm#Stand-alone_mode_restrictions">Stand-alone mode restrictions</a>          section.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Finally, when the upgrade is completed on site A and all services there are verified to be working properly, site A becomes activated. The synchronization process with site B begins, and changes in balances and xDRs accumulated on site B while
+          in stand-alone mode are applied to the main database on site A.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">All new customer calls are directed to site A (using the same tools as described earlier). Any calls in progress on site B finish normally.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">When site B has fully synchronized its data with site A and there are no more “live” calls there, the update process begins on site B. It replicates all the changes in the database structure from site A, a new version of the software is installed
+          and its servers are rebooted.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">When the update finishes, site B returns to its standard operational mode: PortaSIP® servers there may be used in conjunction with the main site to process calls; the billing servers and database are in stand-by mode and data changes on site A
+          are replicated to site B so it has an up-to-date copy of all service configurations.</p>
+        <p><img alt="ZDU main site update" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image17.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image17.png" class="popup-image-thumbnail" width="750"/></p>
+        <p> </p>
+        <img alt="ZDU secondary site update" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image18.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image18.png" class="popup-image-thumbnail" width="750"/></li>
+    </ul>
+  </div>
+
+</body></html>

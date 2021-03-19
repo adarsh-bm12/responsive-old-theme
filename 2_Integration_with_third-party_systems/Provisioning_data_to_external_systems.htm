@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "1";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>Provisioning data to external systems</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>Provisioning data to external systems</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="Provisioning data to external systems">
+        <span>Provisioning data to external systems</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <div>
+    <h2 class="Heading2"><a id="Provisioning_data_to_external_systems"></a>Provisioning data to external systems</h2>
+    <p>To automatically update your user’s configuration in external systems (e.g. mobile core network components, IPTV platform, etc.) from PortaBilling®, use the External Systems Provisioning Framework (ESPF). The ESPF captures the changes in a user’s
+      configuration in PortaBilling® and then notifies the external systems about them.</p>
+    <p>To make this happen, specific changes in a customer and / or account configuration are recorded as events in PortaBilling®. The ESPF monitors these <strong>events</strong>, processes them and sends the updated events via HTTP protocol to your custom
+      web application.</p>
+    <p>The application receives the request, retrieves the necessary data (e.g. MSISDN, IMSI) from PortaBilling® via the API and triggers the API call in the external system for some action (e.g. activate a SIM card in the HSS or create a new subscriber
+      in the IPTV platform.)</p>
+    <p> </p>
+    <p><img alt="Provisioning data to external systems" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image22.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image22.png" class="popup-image-thumbnail" width="750"/></p>
+    <p> </p>
+    <p>Delivering data via HTTP enables you to use any programming language for your web application and run your application on any of your web servers (e.g. on premises or hosted in a cloud, etc.).</p>
+    <p>Another approach to data provisioning is the use of dedicated event handlers. An event handler is a special Perl module in PortaBilling® that provisions a particular external system using this system’s API. There is a separate handler for each external
+      system that PortaBilling® is integrated with. Find the list of available event handers in the <a class="Hyperlink" href="https://www.portaone.com/documentation" target="_blank">External Systems Interfaces Guide.</a></p>
+    <p>If you need to integrate a new external system and provision data to it, you can either create your own event handler or request development from PortaOne.</p>
+    <p>The ESPF simplifies the integration with the external systems that you deploy in your network infrastructure. PortaBilling® provides a single location for data provisioning management.</p>
+  </div>
+
+</body></html>

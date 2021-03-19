@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "3.1";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>API for data operations</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>API for data operations</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="API for data operations">
+        <span>API for data operations</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <div>
+    <h2 class="Heading2"><a id="API_for_data_operations"></a>API for data operations</h2>
+    <p>Although it is possible for an external application to access billing data directly in the database, PortaBilling® allows you to perform operations such as data retrieval or data modification via API using the following Web Application Services: XML
+      (SOAP) and JSON RPC.</p>
+    <p>This is ideal for applications such as external web portals (where you only need to create a front-end to present the data to the end user) or order entry/provisioning systems (where an application needs to supply the new customer’s data to PortaBilling
+      ® in order to activate him).</p>
+    <p> </p>
+    <p><img alt="API architecture" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image21.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image21.png" class="popup-image-thumbnail" width="750"/></p>
+    <p> </p>
+    <p>Performing operations via API has several advantages:</p>
+    <ul>
+      <li>
+        <p class="ListParagraph">It is based on either XML/SOAP (Simple Object Access Protocol) or JSON (JavaScript Object Notation) Web Application Services and HTTPS transport, so it is accessible from any platform or operating system, and all communication between the server
+          and clients is secure.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">The business logic embedded into the API provides integrity checks for all data modifications, and can compile records from several database tables to create a single customer information retrieval structure.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">PortaBilling® API is accessible to every owner of a virtual environment or reseller. Each user’s access is automatically limited to his “visible” portion of the available data, e.g. a reseller can only retrieve information about his own sub-customers
+          or their accounts.</p>
+      </li>
+    </ul>
+    <p>PortaBilling® XML/JSON API allows users to perform select, update, insert or delete operations on entities such as customers or accounts. Each user has his own login credentials, and each operation he wishes to perform is analyzed to determine if
+      it is possible with regard to general data integrity (e.g. a new account cannot be created without being assigned to a customer) as well as the particular user’s security permissions (ACLs) (e.g. while it is possible in general to create new accounts,
+      this user may be prohibited from doing so).</p>
+    <p>Details on XML / JSON API (such as available methods and data structures) are described in the <a class="Hyperlink" href="http://www.portaone.com/support/documentation/" target="_blank">PortaBilling® XML / JSON API Reference</a>.</p>
+    <h3 class="Heading3"><a id="Extended_data_search_via_the_API"></a>Extended data search via the API</h3>
+    <p>The <span class="FixedWidth">get_customer_list</span> API method allows filtering customer data by using attributes that are relevant to them (e.g. by customer’s home city). However, this might not be sufficient to perform advanced customer and account
+      searches, e.g. to search for US-based customers who have spent over $100 on voice calls in a previous billing period.</p>
+    <p>The <span class="FixedWidth">get_extended_data_list</span> API method enables you to do just that. <span lang="en-GB">You construct the API request and define your own search criteria as input parameters. For example, you can search for customers who live in Toronto and use the EasyCall and SuperCall products.</span></p>
+    <p><span lang="en-GB">The API method retrieves the desired list and delivers consolidated information about customers to your CRM application. </span>Thus, for the example above, it includes information about customers, their accounts and their products.
+      <span lang="en-GB">This allows you to use PortaBilling® data via your CRM applications to execute marketing campaigns, formulate reports, etc. </span></p>
+    <p><span lang="en-GB">T</span>he <span class="FixedWidth">get_extended_data_list</span> method is only available in JSON format. Since you create your own API requests, deeper knowledge of the PortaBilling® API is required.</p>
+    <p>The <span class="FixedWidth">get_extended_data_list</span> API method enables you to filter customers and accounts by using the attributes of such entities as:</p>
+    <ul>
+      <li>
+        <p class="ListParagraph">customers,</p>
+      </li>
+      <li>
+        <p class="ListParagraph">accounts,</p>
+      </li>
+      <li>
+        <p class="ListParagraph">products (both main ones and add-ons),</p>
+      </li>
+      <li>
+        <p class="ListParagraph">customer classes and</p>
+      </li>
+      <li>
+        <p class="ListParagraph">invoices.</p>
+      </li>
+    </ul>
+    <p>Upon your request, this method can be expanded to operate using other PortaBilling® entities.</p>
+    <p>Thus, having the ability to perform an advanced data search via the API gives you the following benefits:</p>
+    <ul>
+      <li>
+        <p class="ListParagraph">The ability to retrieve data from PortaBilling® directly from your CRM or other external apps;</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Secure access to the PortaBilling® database; and</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Flexibility in forming search queries.<span lang="en-GB"> </span></p>
+      </li>
+    </ul>
+  </div>
+
+</body></html>

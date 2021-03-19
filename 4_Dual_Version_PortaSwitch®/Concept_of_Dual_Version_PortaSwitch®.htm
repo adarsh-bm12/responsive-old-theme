@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "5.1";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>Concept_of_Dual_Version_PortaSwitch®</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>Concept_of_Dual_Version_PortaSwitch®</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="Concept_of_Dual_Version_PortaSwitch®">
+        <span>Concept_of_Dual_Version_PortaSwitch®</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <div>
+    <h2 class="Heading2"><a id="Concept_of_Dual_Version_PortaSwitch"></a>Concept of Dual Version PortaSwitch®</h2>
+    <p>Dual Version PortaSwitch® is a solution for gradual migration to a newer software system version across several MRs using a two-system setup and customer batching. It allows service providers to gain access to the new features, secure their existing
+      platform&#39;s overall stability during an update, and carry out the update at a comfortable pace.</p>
+    <p>Dual Version PortaSwitch® consists of two systems – source and target – that operate simultaneously.</p>
+    <ul>
+      <li>
+        <p class="ListParagraph">The<strong> source system</strong> runs the current release (e.g., MR65).</p>
+      </li>
+      <li>
+        <p class="ListParagraph">The<strong> target system</strong> initially mirrors the source system and is then updated to a new release (i.e., MR65→MR80).</p>
+      </li>
+    </ul>
+    <p>To eliminate human errors and ensure stable and correct processes of service configuration and data transfer, Dual Version PortaSwitch® provides technical solutions that help migrate some of the existing customers to the new release. Customer migration
+      is done in batches. Immediately after the migration of a given customer batch, the services for it can be run with minimum reconfiguration efforts. </p>
+    <p>The available technical solutions in Dual Version PortaSwitch® address:</p>
+    <ul>
+      <li>
+        <p class="ListParagraph">Customer data transfer.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Transparent routing of the calls to the system serving the customer.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Proxying RADIUS/Diameter requests to the system serving the customer.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Common API entry point.</p>
+      </li>
+      <li>
+        <p class="ListParagraph">Distribution of number porting requests across systems based on the customer record location</p>
+      </li>
+    </ul>
+    <h4 class="Heading4"><a id="About_the_target_system_setup"></a>About the target system setup</h4>
+    <p>The target system starts as a full database copy of the source (production) system (e.g., MR72). The database snapshot of the production system is copied to the target system, where it is upgraded to the new software version (e.g., MR85). As a result,
+      all configuration entities such as products, tariffs, and rates are cloned and ready-to-use on the target system.</p>
+    <p>The dedicated provisioning scenario configures interconnection between both the source and target systems, installs all required code modifications, and enables all components required to run Dual Version PortaSwitch®, such as ESPF handlers, forwarding
+      registry, etc.</p>
+    <p>Currently, the updates that &quot;jump&quot; over several release versions require obligatory checkpoints every 15 releases (currently MR55-6→MR70-6 or MR70-6→MR85-3).</p>
+  </div>
+
+</body></html>

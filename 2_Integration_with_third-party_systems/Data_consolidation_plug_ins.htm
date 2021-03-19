@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "3.1_3";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>Data consolidation plug-ins</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>Data consolidation plug-ins</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="Data consolidation plug-ins">
+        <span>Data consolidation plug-ins</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <h2 class="Heading2"><a id="Data_consolidation_plug-ins"></a>Data consolidation plug-ins</h2>
+  <p>Let’s say you use PortaBilling® for customer management and a NMS (Network Management System) for monitoring network performance, circuit management and configuration, etc. When checking customer information (e.g. during troubleshooting) you must login
+    to both PortaBilling® <em>and </em>to the NMS.</p>
+  <p>Instead of managing two systems separately, you can integrate the NMS with PortaBilling®. Create an integration plug-in, install it in PortaBilling® and operate with the NMS from the PortaBilling® web interface.</p>
+  <p>Each time you open customer data, PortaBilling®:</p>
+  <ul>
+    <li>
+      <p class="ListParagraph">dynamically retrieves the network information related to the customer from the NMS via the API, and</p>
+    </li>
+    <li>
+      <p class="ListParagraph">displays the consolidated data on the web interface.</p>
+    </li>
+  </ul>
+  <p>The NMS data is then displayed on the custom panel.</p>
+  <p>When you modify the information (e.g. change bandwidth limits or reconfigure a router), the data is automatically sent to the NMS.</p>
+  <p>An integration plug-in is a set of application files that contain the logic for a new custom panel (e.g. fields, types, default values). While installing the plug-in, specify whether the panel appears in the main navigation menu or at a specific entity
+    level (e.g. customer, reseller). Upon installing the plug-in, the custom panel for system operation appears in PortaBilling®. This way, you can integrate PortaBilling® with any external system that supports the REST API.</p>
+  <p>Consider the following example:</p>
+  <p>Asgard Telecom has a contract management system (CMS) to store and manage customer contracts. They require:</p>
+  <ul>
+    <li>
+      <p class="ListParagraph">real-time interaction between the CMS and PortaBilling®, and</p>
+    </li>
+    <li>
+      <p class="ListParagraph">the ability to manage the contracts (e.g. Contracts feature) via the PortaBilling® web interface.</p>
+    </li>
+  </ul>
+  <p>Asgard Telecom implements a plug-in for the Contracts feature. After the plug-in installation, a new Contracts panel is available at the customer level. It permits the customer contract details to be managed. When an administrator saves a contract,
+    the plug-in pushes the data to the CMS via the API. Each time an administrator opens the Contracts panel, the data is retrieved from the CMS.</p>
+  <p> </p>
+  <p><img alt="New feature added" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image23.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image23.png" class="popup-image-thumbnail" width="1000"/></p>
+  <p> </p>
+  <p><img alt="Feature configuration" src="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image24.png" data-rhwidget="Basic" data-popupimage="../assets/images/PortaSwitch_Concepts_MR89-01-AD_files/image24.png" class="popup-image-thumbnail" width="1000"/></p>
+  <p> </p>
+  <p>This solution allows you to integrate PortaBilling® with the external systems and manage all of the data from a single place. Aside from improving workflow, it gives you additional flexibility with introducing individual business solutions using PortaBilling®.</p>
+  <p>Please contact the PortaOne® support team for assistance with how to install integration plug-ins.</p>
+
+</body></html>

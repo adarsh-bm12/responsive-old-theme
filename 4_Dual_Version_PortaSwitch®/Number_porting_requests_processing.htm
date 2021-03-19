@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+  <script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+  <style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+
+  <script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "..";
+    gCommonRootRelPath = "..";
+    gTopicId = "5.4";
+  
+//]]></script>
+
+  <script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/common.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+  <script type="text/javascript" src="../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../whxdata/projectsettings.js"></script>
+  <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../template/Port/topicheader.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <title>Number porting requests processing</title>
+  <meta name="topic-status" content="Draft"/>
+
+  <meta charset="UTF-8"/>
+  <title>Number porting requests processing</title>
+  <meta name="generator" content="Adobe RoboHelp 2019"/>
+  <link rel="stylesheet" href="../assets/css/new_css.css"/>
+  <link rel="stylesheet" href="../assets/css/PortaSwitch_Concepts_MR89-01-AD.css"/>
+</head>
+
+<body>
+  <div class="topic-header rh-hide" id="rh-topic-header" onclick="rh._.goToFullLayout()">
+    <div class="logo">
+    </div>
+    <div class="nav">
+      <div class="title" title="Number porting requests processing">
+        <span>Number porting requests processing</span>
+      </div>
+      <div class="gotohome" title="Click here to see this page in full context">
+        <span>Click here to see this page in full context</span>
+      </div>
+    </div>
+  </div>
+  <div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+
+
+  <div>
+    <h2 class="Heading2"><a id="Number_porting_requests_processing"></a>Number porting requests processing</h2>
+    <p>Number porting is widely used within the wireless communications market as it allows users to keep their numbers when switching service providers.</p>
+    <p>In Dual Version PortaSwitch®, number porting requests are distributed based on the current location of the customer record. Thus, all incoming requests from Neustar arrive to WebDispatcher, which passes them either to the target system or the source
+      one. This ensures uninterrupted service provisioning and facilitates smooth customer migration.</p>
+    <p>Let’s consider how request distribution works for port-in and port-out requests.</p>
+    <h4 class="Heading4"><a id="Port-out_requests"></a>Port-out requests</h4>
+    <p>Port-out requests are created automatically, without an administrator’s involvement. So when a user wishes to port their number from PortaBilling® to another provider, WebDispatcher receives the port-out request from Neustar. WebDispatcher finds which
+      system the customer’s account record belongs to. If the customer has been moved to the target system, it passes the number porting request there. The target system terminates the customer’s account record and updates Neustar about its number availability.
+      Neustar confirms the request completion to WebDispatcher, which passes it to the target system.</p>
+    <p>If the customer’s account is within the source system, the whole porting out procedure runs from there.</p>
+    <h4 class="Heading4"><a id="Port-in_requests"></a>Port-in requests</h4>
+    <p>When porting in a user’s number, the administrator defines the system where this number will be provisioned. Then the respective system interacts with Neustar to complete the request.</p>
+    <p>Consider the following example:<br/> John Doe, a former customer of EasyCall Ltd., signs up for HappyTraffic services and wants to keep his number 18185557852. The administrator creates the account 120522254200 for John in the target system and initiates
+      a port-in request to Neustar in the target system’s PortaBilling®. After Neustar confirms the request, 120522254200 is replaced with 18185557852 and John starts using the services of HappyTraffic.</p>
+    <p>The distribution of number porting requests across systems within Dual Version PortaSwitch® facilitates gradual customer migration and ensures the uninterrupted operation of number porting functionality for users, regardless of their location.</p>
+  </div>
+
+</body></html>
