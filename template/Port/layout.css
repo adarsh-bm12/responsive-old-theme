@@ -467,7 +467,7 @@ div.searchresults {
       div.searchresults .wSearchResultItem a.nolink div.wSearchResultTitleHover {
         font-size: 1.25em;
         margin-bottom: .25em;
-        word-wrap: break-word; }
+        /* word-wrap: break-word; } */
     div.searchresults .wSearchResultItem div.wSearchContext {
       font-size: 1em; }
     div.searchresults .wSearchResultItem div.wSearchURL {
