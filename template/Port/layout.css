@@ -248,7 +248,8 @@ body.media-desktop div.toc-holder {
   margin-top: 2em; }
   body.media-desktop div.toc-holder * {
     width: auto;
-    white-space: nowrap; }
+    /* white-space: nowrap; */
+  } 
   body.media-desktop div.toc-holder > ul li {
     padding-left: 2em; }
   body.media-desktop div.toc-holder ul {
